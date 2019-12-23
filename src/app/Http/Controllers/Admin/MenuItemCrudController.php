@@ -18,6 +18,11 @@ class MenuItemCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/menu-item');
         $this->crud->setEntityNameStrings('menu item', 'menu items');
 
+        /*
+        |--------------------------------------------------------------------------
+        | LIST OPERATION
+        |--------------------------------------------------------------------------
+        */
         $this->crud->enableReorder('name', 3);
 
         $this->crud->operation('list', function () {
@@ -33,9 +38,28 @@ class MenuItemCrudController extends CrudController
                 'attribute' => 'name',
                 'model' => "\Backpack\MenuCRUD\app\Models\MenuItem",
             ]);
+            $this->crud->addColumn([
+                'label' => 'Menu',
+                'type' => 'select',
+                'name' => 'menu_id',
+                'entity' => 'menu',
+                'attribute' => 'name',
+            ]);
         });
 
+        /*
+        |--------------------------------------------------------------------------
+        | CREATE & UPDATE OPERATIONS
+        |--------------------------------------------------------------------------
+        */
         $this->crud->operation(['create', 'update'], function () {
+            $this->crud->addField([
+                'label' => 'Menu',
+                'type' => 'select2',
+                'name' => 'menu_id',
+                'entity' => 'menu',
+                'attribute' => 'name',
+            ]);
             $this->crud->addField([
                 'name' => 'name',
                 'label' => 'Label',

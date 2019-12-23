@@ -15,5 +15,6 @@ Route::group([
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
     'namespace' => 'Backpack\MenuCRUD\app\Http\Controllers\Admin',
 ], function () {
+    Route::crud('menu', 'MenuCrudController');
     Route::crud('menu-item', 'MenuItemCrudController');
 });

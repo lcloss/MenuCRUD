@@ -20,7 +20,7 @@
     "prefer-stable": true,
     "require": {
         "backpack/crud": "^4.0.0",
-        "backpack/pagemanager": "^2.0"
+        "lcloss/pagemanager": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",

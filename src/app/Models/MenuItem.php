@@ -10,7 +10,7 @@ class MenuItem extends Model
     use CrudTrait;
 
     protected $table = 'menu_items';
-    protected $fillable = ['name', 'type', 'link', 'page_id', 'parent_id'];
+    protected $fillable = ['menu_id', 'name', 'type', 'link', 'page_id', 'parent_id'];
 
     public function parent()
     {
@@ -25,6 +25,11 @@ class MenuItem extends Model
     public function page()
     {
         return $this->belongsTo('Backpack\PageManager\app\Models\Page', 'page_id');
+    }
+
+    public function menu()
+    {
+        return $this->belongsTo('Backpack\MenuCRUD\app\Models\Menu', 'menu_id');
     }
 
     /**
