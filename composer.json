@@ -1,5 +1,5 @@
 {
-    "name": "backpack/menucrud",
+    "name": "lcloss/menucrud",
     "type": "library",
     "description": "An admin panel for menu items, using Backpack\\CRUD on Laravel 6.",
     "keywords": [
@@ -20,7 +20,7 @@
     "prefer-stable": true,
     "require": {
         "backpack/crud": "^4.0.0",
-        "lcloss/pagemanager": "^2.0"
+        "lcloss/pagemanager": "@dev"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",
