@@ -14,7 +14,7 @@ class Menu extends Model
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    protected $table = 'menu';
+    protected $table = 'menus';
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = ['name', 'position'];

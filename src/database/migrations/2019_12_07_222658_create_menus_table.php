@@ -12,10 +12,10 @@ class CreateMenuTable extends Migration
      */
     public function up()
     {
-        Schema::create('menu', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->enum('position', ['TOP', 'MAIN', 'FOOTER', 'LEFTSIDEBAR', 'RIGHTSIDEBAR'])->default('MAIN');
+            $table->enum('position', ['TOP', 'MAIN', 'FOOTER', 'WIDGET1', 'WIDGET2', 'WIDGET3', 'WIDGET4', 'SIDEBAR1', 'SIDEBAR2'])->default('MAIN');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateMenuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu');
+        Schema::dropIfExists('menus');
     }
 }
