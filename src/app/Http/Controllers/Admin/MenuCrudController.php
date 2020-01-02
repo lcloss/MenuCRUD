@@ -4,6 +4,7 @@ namespace Backpack\MenuCRUD\app\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\DB;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\MenuCRUD\app\Http\Requests\MenuRequest;
 
 class MenuCrudController extends CrudController
 {
@@ -49,6 +50,8 @@ class MenuCrudController extends CrudController
         $this->crud->operation(['create', 'update'], function () {
             DB::connection()->getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
 
+            $this->crud->setValidation(MenuRequest::class);
+
             $this->crud->addField([
                 'name' => 'name',
                 'label' => 'Name',
@@ -57,10 +60,6 @@ class MenuCrudController extends CrudController
                 'name' => 'position',
                 'label' => 'Position',
                 'type'  => 'enum',
-                /*
-                'type'  => 'select_from_array',
-                'options' => ['TOP', 'MAIN', 'FOOTER', 'LEFT_SIDEBAR', 'RIGHT_SIDEBAR'],
-                */
                 'allows_null' => false,
             ]);
         });
